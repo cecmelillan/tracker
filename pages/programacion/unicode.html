@@ -1,0 +1,31 @@
+<div class="jumbotron text-center">  
+	<div class="row">
+		<form class="navbar-form navbar-left" role="search" ng-submit="search()">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Celdas" ng-model="rango.celdas">
+				<input type="text" class="form-control" placeholder="Desde" ng-model="rango.desde">
+				<input type="text" class="form-control" placeholder="Hasta" ng-model="rango.hasta">
+			</div>
+			<button type="submit" class="btn btn-success">Buscar</button>
+			<button type="reset" class="btn btn-warning" ng-click="limpiarFiltro()">Reset</button>
+		</form>
+	</div>				  
+
+	<div ng-if="lista[0]">
+		<table class="table bordered striped">	  
+			<tr ng-repeat="row in lista">
+				<td ng-repeat="item in row">
+					<small>&#{{item.nro}}; </small>
+					<span ng-bind-html="item.unicode"></span> 
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<br /><br />
+	
+	<div class="row" ng-show="!lista[0]">
+		<div class="alert alert-warning" role="alert">Sin registros para mostrar</div>
+	</div>
+		
+</div>

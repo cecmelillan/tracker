@@ -1,0 +1,44 @@
+<div class="jumbotron text-center">  
+		
+<form class="row" ng-submit="sendPost()">
+  <label for="usr">Cargar Tarea:</label><br />
+  <div class="col-xs-2">
+    <input type="text" class="form-control" ng-model="tarea.fecha">
+  </div>
+  <div class="col-xs-10">
+    <input type="text" class="form-control" ng-model="tarea.descripcion" placeholder="Descripcion">
+  </div>
+  <button type="submit" class="sr-only" aria-hidden="true">Submit</button>
+</form>
+
+	<div ng-if="lista != 'null'">
+		<table class="table bordered striped">
+		  <tr>
+			<th>Fecha</th>
+			<th>Tarea</th>
+			<th>Acciones</th>
+		  </tr>
+		  <tr ng-repeat="row in lista">
+			<td>{{ row.fecha }}</td>
+			<td>{{ row.descripcion }}</td>
+			<td>
+			  <button class="btn btn-xs btn-warning ripple" tooltip="Editar" ng-click="editar(row)"><span class="glyphicon glyphicon-pencil"></span></button>
+			  <button class="btn btn-xs btn-danger" tooltip="Editar" ng-click="borrar(row)"><span class="glyphicon glyphicon-trash"></span></button>
+			</td>
+		  </tr>
+		</table>
+	</div>
+
+</div>
+
+  <button type="button" class="btn btn-xs btn-primary" data-toggle="collapse" data-target="#demo">Buscar por Fecha</button>
+  <div id="demo" class="collapse">
+				  <form class="navbar-form navbar-left" role="search" ng-submit="search()">
+					<div class="form-group">
+					  <input type="text" class="form-control" placeholder="aaaa" ng-model="filtro.anio">
+					  <input type="text" class="form-control" placeholder="mm" ng-model="filtro.mes">
+					  <input type="text" class="form-control" placeholder="dd" ng-model="filtro.dia">
+					</div>
+					<button type="submit" class="btn btn-success">Buscar</button>
+				  </form>
+  </div>

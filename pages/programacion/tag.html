@@ -1,0 +1,49 @@
+<div class="jumbotron text-center">  
+
+<form class="row" ng-submit="guardar()">
+  <label for="usr">Cargar Tarea:</label><br />  
+
+  <div class="col-xs-2">
+    <input type="text" class="form-control" ng-model="objeto.tag" placeholder="tag">
+  </div>
+  <div class="col-xs-8">
+    <input type="text" class="form-control" ng-model="objeto.descripcion" placeholder="Comentarios">
+  </div>
+  <button type="submit" class="sr-only" aria-hidden="true">Submit</button>
+</form>
+
+	<div ng-if="lista[0]">
+		<table class="table bordered striped">
+		  <tr>
+			<th>Tag</th>
+			<th>Descripcion</th>
+		  </tr>
+		  <tr ng-repeat="row in lista">
+			<td>{{ row.tag }}</td>
+			<td>{{ row.descripcion }}</td>
+			<td>
+			  <button class="btn btn-xs btn-warning ripple" tooltip="Editar" ng-click="editar(row)"><span class="glyphicon glyphicon-pencil"></span></button>
+			  <button class="btn btn-xs btn-danger" tooltip="Editar" ng-click="borrar(row)"><span class="glyphicon glyphicon-trash"></span></button>
+			</td>
+		  </tr>
+		</table>
+	</div>
+
+	
+		<div class="row" ng-show="!lista[0]">
+			<span class="alert alert-warning" role="alert">Sin registros para mostrar</span>
+		</div>
+		
+</div>
+
+  <button type="button" class="btn btn-xs btn-primary" data-toggle="collapse" data-target="#filtro">Buscar</button>
+  <div id="filtro" class="collapse">
+				  <form class="navbar-form navbar-left" role="search" ng-submit="search()">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Tag" ng-model="filtro.tag">
+						<input type="text" class="form-control" placeholder="Descripcion" ng-model="filtro.descripcion">
+					</div>
+					<button type="submit" class="btn btn-success">Buscar</button>
+					<button type="reset" class="btn btn-warning" ng-click="limpiarFiltro()">Reset</button>
+				  </form>
+  </div>

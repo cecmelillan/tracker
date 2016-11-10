@@ -1,0 +1,63 @@
+<div class="jumbotron text-center">  
+
+<form class="row" ng-submit="guardar()">
+  <label for="usr">Cargar Tarea:</label><br />  
+
+  <div class="col-xs-2">
+	<select ng-init="objeto.alcance = tiposAlcance[0].id"
+			ng-model="objeto.alcance" 
+			ng-options="tipoAlcance.id as tipoAlcance.descripcion for tipoAlcance in tiposAlcance"
+			class="form-control" tooltip="Alcance">
+	</select>
+  </div>
+  
+  <div class="col-xs-2">
+    <input type="text" class="form-control" ng-model="objeto.url" placeholder="url">
+  </div>
+  <div class="col-xs-8">
+    <input type="text" class="form-control" ng-model="objeto.nombre" placeholder="Nombre">
+  </div>
+  <div class="col-xs-8">
+    <input type="text" class="form-control" ng-model="objeto.descripcion" placeholder="Descripcion">
+  </div>
+  <button type="submit" class="sr-only" aria-hidden="true">Submit</button>
+</form>
+
+	<div ng-if="lista[0]">
+		<table class="table bordered striped">
+		  <tr>
+			<th>Termino</th>
+			<th>Detalle</th>
+		  </tr>
+		  <tr ng-repeat="row in lista">
+			<td><a href="{{ row.url }}" target="_blank">{{ row.nombre }}</a></td>
+			<td>{{ row.descripcion }}</td>
+			<td>
+			  <button class="btn btn-xs btn-warning ripple" tooltip="Editar" ng-click="editar(row)"><span class="glyphicon glyphicon-pencil"></span></button>
+			  <button class="btn btn-xs btn-danger" tooltip="Editar" ng-click="borrar(row)"><span class="glyphicon glyphicon-trash"></span></button>
+			</td>
+		  </tr>
+		</table>
+	</div>
+
+	
+		<div class="row" ng-show="!lista[0]">
+			<span class="alert alert-warning" role="alert">Sin registros para mostrar</span>
+		</div>
+		
+</div>
+
+  <button type="button" class="btn btn-xs btn-primary" data-toggle="collapse" data-target="#demo">Buscar</button>
+  <div id="demo" class="collapse">
+				  <form class="navbar-form navbar-left" role="search" ng-submit="search()">
+					<div class="form-group">
+						<select ng-model="filtro.alcance" 
+								ng-options="tipoAlcance.id as tipoAlcance.descripcion for tipoAlcance in tiposAlcance"
+								class="form-control" tooltip="alcance">
+						</select>
+						<input type="text" class="form-control" placeholder="Nombre" ng-model="filtro.nombre">
+					</div>
+					<button type="submit" class="btn btn-success">Buscar</button>
+					<button type="reset" class="btn btn-warning" ng-click="limpiarFiltro()">Reset</button>
+				  </form>
+  </div>

@@ -1,0 +1,35 @@
+<div class="jumbotron text-center">  
+
+	<div ng-if="lista != 'null'">
+		<table class="table bordered striped">
+		  <tr>
+			<th>Nro</th>
+			<th>Consulta</th>
+			<th>Respuesta</th>
+			<th></th>
+		  </tr>
+		  <tr ng-repeat="row in lista">
+			<td>{{ row.id }}</td>
+			<td>{{ row.consulta }}</td>
+			<td>{{ row.respuesta }}</td>
+			<td>
+			  <button class="btn btn-xs btn-warning ripple" tooltip="Editar" ng-click="editar(row)"><span class="glyphicon glyphicon-pencil"></span></button>
+			  <button class="btn btn-xs btn-danger" tooltip="Editar" ng-click="borrar(row)"><span class="glyphicon glyphicon-trash"></span></button>
+			</td>
+		  </tr>
+		</table>
+	</div>
+	
+</div>
+
+  <button type="button" class="btn btn-xs btn-primary" data-toggle="collapse" data-target="#demo">Agregar</button>
+  <div id="demo" class="collapse">
+	<form class="navbar-form navbar-left" role="search" ng-submit="guardar()">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Faq" ng-model="objeto.consulta">
+			<input type="text" class="form-control" placeholder="Repuesta" ng-model="objeto.respuesta">
+			<input type="textarea" class="form-control" placeholder="Descripcion adicional" ng-model="objeto.descripcion">
+		</div>
+		<button type="submit" class="btn btn-success">Guardar</button>
+	</form>
+  </div>

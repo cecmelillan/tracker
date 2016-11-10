@@ -1,0 +1,55 @@
+<!-- index.html -->  
+<html ng-app='myApp'>  
+<head>
+	<link rel="stylesheet" href="src/lib/bootstrap.min.css">	
+
+    <link rel="stylesheet" href="src/css/ngDialog.css">
+    <link rel="stylesheet" href="src/css/ngDialog-theme-default.css">
+    <link rel="stylesheet" href="src/css/ngDialog-theme-plain.css">
+    <link rel="stylesheet" href="src/css/ngDialog-custom-width.css">
+	
+	<script src="src/lib/jquery.1.11.3.min.js"></script>
+	<script src="src/lib/bootstrap.3.3.6.min.js"></script>
+	<script src="src/lib/angular.min.js"></script>
+    <script src="src/lib/angular-route.js"></script>
+    <script src="src/lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
+	
+	<script src="src/js/ngDialog.js"></script>
+	<script src="src/js/angular-sanitize.js"></script>
+	
+    <script src="main.js"></script>
+	<!-- PAGINAS -->
+    <script src="pages/mainCtrl.js"></script>
+    <script src="pages/faqCtrl.js"></script>
+    <script src="pages/mediosCtrl.js"></script>
+    <script src="pages/materiasCtrl.js"></script>
+    <script src="pages/programacion/unicodeCtrl.js"></script>
+    <script src="pages/programacion/twitterCtrl.js"></script>
+    <script src="pages/programacion/facebookCtrl.js"></script>
+    <script src="pages/programacion/freeCtrl.js"></script>
+    <script src="pages/programacion/tagCtrl.js"></script>
+    <script src="pages/cnrt/presentismoCtrl.js"></script>
+    <script src="pages/cnrt/sitiosCtrl.js"></script>
+    <script src="pages/cnrt/licenciasCtrl.js"></script>
+    <script src="pages/cnrt/areasCtrl.js"></script>
+	<!-- MODALES -->
+    <script src="pages/modal/editCtrl.js"></script>
+    <script src="pages/modal/deleteCtrl.js"></script>	
+	<!-- MODALES EDIT - BORRAR -->
+    <script src="controller.js"></script>
+
+
+</head>  
+<body ng-controller='mainCtrl'>
+
+	<div class="container">
+	  <header>
+		<!-- MENU -->
+		<div ng-include="'pages/menu.html'"></div>
+	  </header>
+	  
+      <!-- Aquí inyectamos las vistas -->
+      <div ng-view></div>
+	  
+  </body>
+  </html>

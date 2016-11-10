@@ -1,0 +1,31 @@
+﻿  <div>
+
+	<form class="form-horizontal" ng-submit="guardar()">
+	  <fieldset>
+		<legend><h4>Editando registro {{row.id}}</h4></legend>
+		
+		<div class="form-group">
+		  <label class="control-label" for="consulta">Consulta</label>
+		  <input class="form-control" id="consulta" type="text" ng-model="row.consulta">
+		</div>
+		
+		<div class="form-group">
+		  <label class="control-label" for="respuesta">Respuesta</label>
+		  <input class="form-control" id="respuesta" type="text" ng-model="row.respuesta">
+		</div>
+		
+		<div class="form-group">
+		  <label class="control-label" for="descripcion">Descripcion</label>
+		  <input class="form-control" id="descripcion" type="text" ng-model="row.descripcion">
+		</div>
+		
+		<div class="form-group">
+		  <div class="col-lg-10 col-lg-offset-2">
+			<button type="reset" class="btn btn-default">Cancelar</button>
+			<button type="submit" class="btn btn-primary">Enviar</button>
+		  </div>
+		</div>
+		
+	  </fieldset>
+	</form>
+	</div>
